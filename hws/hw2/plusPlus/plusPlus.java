@@ -1,19 +1,17 @@
-package withSemaphore;
+package plusPlus;
 
 
-import java.util.concurrent.Semaphore;
+import java.util.ArrayList;
 
 class MyThread extends Thread {
 
     int id, size, threadNum;
     int[] arr;
-    Semaphore s;
 
-    public MyThread(int id, int[] arr, int threadNum, Semaphore s){
+    public MyThread(int id, int[] arr, int threadNum){
         this.id = id;
         this.arr = arr;
         this.threadNum = threadNum;
-        this.s = s;
     }
 
     @Override
@@ -22,15 +20,12 @@ class MyThread extends Thread {
 
         for (int i = 0; i < 100; i++) {
 //            System.out.println(this.id + "\t:" + arr[0]);
+            arr[0]++;
             try {
-                this.s.acquire();
-                arr[0]++;
-                Thread.sleep(10);
-                this.s.release();
+                Thread.sleep(20);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
         }
 
 //        System.out.println("thread: " + id + ": end");
@@ -43,9 +38,8 @@ public class main {
 
         System.out.println("Thread: main: start");
 
-        int testLimit = 1;
-        int[] results  = new int[100 * 2 + 1];
-        Semaphore s = new Semaphore(1);
+        int testLimit = 100;
+        int[] results  = new int[201];
 
         for (int j = 0; j < testLimit; j++) {
 
@@ -56,7 +50,7 @@ public class main {
             MyThread[] threadArray = new MyThread[threadNum];
 
             for (int i = 0; i < threadNum; i++) {
-                threadArray[i] = new MyThread(i, arr, threadNum, s);
+                threadArray[i] = new MyThread(i, arr, threadNum);
             }
 
             for (int i = 0; i < threadNum; i++) {
@@ -79,6 +73,22 @@ public class main {
 
             System.out.println("Thread: main: result: " + arr[0]);
             results[arr[0]]++;
+        }
+
+        System.out.println("\n\n");
+
+        ArrayList<Integer> indexes = new ArrayList<Integer>();
+
+        for (int i = 0; i < 201; i++) {
+            if(results[i] == 0) continue;
+            indexes.add(i);
+            System.out.println(results[i]);
+        }
+
+        System.out.println("\n\n");
+
+        for (int i: indexes) {
+            System.out.println(i);
         }
 
         System.out.println("Thread: main: end");

@@ -1,7 +1,7 @@
-package b;
+package plusPlus;
 
 
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.ArrayList;
 
 class MyThread extends Thread {
 
@@ -18,9 +18,14 @@ class MyThread extends Thread {
     public void run() {
 //        System.out.println("thread: " + id + ": start");
 
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < 100; i++) {
 //            System.out.println(this.id + "\t:" + arr[0]);
             arr[0]++;
+            try {
+                Thread.sleep(20);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
 //        System.out.println("thread: " + id + ": end");
@@ -34,7 +39,7 @@ public class main {
         System.out.println("Thread: main: start");
 
         int testLimit = 100;
-        int[] results  = new int[testLimit];
+        int[] results  = new int[201];
 
         for (int j = 0; j < testLimit; j++) {
 
@@ -68,6 +73,22 @@ public class main {
 
             System.out.println("Thread: main: result: " + arr[0]);
             results[arr[0]]++;
+        }
+
+        System.out.println("\n\n");
+
+        ArrayList<Integer> indexes = new ArrayList<Integer>();
+
+        for (int i = 0; i < 201; i++) {
+            if(results[i] == 0) continue;
+            indexes.add(i);
+            System.out.println(results[i]);
+        }
+
+        System.out.println("\n\n");
+
+        for (int i: indexes) {
+            System.out.println(i);
         }
 
         System.out.println("Thread: main: end");

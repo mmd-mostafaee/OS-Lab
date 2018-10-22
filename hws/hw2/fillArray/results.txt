@@ -1,0 +1,18 @@
+CPU	i7-4710HQ
+RAM	16
+OS	windows 10
+Java 	18
+---------------------------------------------------------
+1 Thread(s):	783ms	859ms	834ms	885ms	831ms	877ms	899ms	895ms	837ms	843ms	Min:783ms
+2 Thread(s):	523ms	419ms	562ms	436ms	421ms	491ms	554ms	447ms	575ms	442ms	Min:419ms
+3 Thread(s):	399ms	486ms	424ms	316ms	354ms	446ms	388ms	398ms	431ms	408ms	Min:316ms
+4 Thread(s):	488ms	477ms	518ms	506ms	559ms	536ms	502ms	482ms	500ms	574ms	Min:477ms
+5 Thread(s):	488ms	479ms	542ms	526ms	543ms	499ms	523ms	496ms	504ms	595ms	Min:479ms
+6 Thread(s):	658ms	507ms	385ms	685ms	567ms	414ms	763ms	588ms	409ms	554ms	Min:385ms
+7 Thread(s):	1076ms	779ms	835ms	779ms	585ms	716ms	808ms	761ms	923ms	713ms	Min:585ms
+8 Thread(s):	992ms	954ms	1052ms	753ms	846ms	904ms	793ms	1011ms	1104ms	1034ms	Min:753ms
+16 Thread(s):	2025ms	2164ms	2118ms	1992ms	2093ms	2083ms	2141ms	2151ms	1919ms	1967ms	Min:1919ms
+32 Thread(s):	2312ms	2242ms	2392ms	2278ms	2256ms	2519ms	2303ms	2285ms	2563ms	3106ms	Min:2242ms
+64 Thread(s):	2506ms	2312ms	2353ms	2444ms	2388ms	2442ms	2529ms	2363ms	2472ms	2349ms	Min:2312ms
+----------------------------------------------------------
+Overall Min:316ms with 3 Threads
