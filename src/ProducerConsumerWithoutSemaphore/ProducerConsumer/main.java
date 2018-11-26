@@ -1,6 +1,6 @@
 package ProducerConsumerWithoutSemaphore.ProducerConsumer;
 
-
+import java.io.*;
 import java.util.ArrayList;
 
 class Producer extends Thread {
